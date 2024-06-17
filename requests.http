@@ -1,0 +1,131 @@
+###user reg
+POST http://localhost:4000/user-api/user
+Content-Type: application/json
+
+{
+    "userType": "user",
+    "username": "chakri",
+    "password": "chakri",
+    "email": "chakri@gmail.com"
+}
+
+
+###user login req
+post http://localhost:4000/user-api/login
+Content-Type: application/json
+
+{
+    "userType":"user",
+    "username":"chakri",
+    "password":"chakri"
+    
+}
+
+
+###author reg
+POST http://localhost:4000/author-api/user
+Content-Type: application/json
+
+{
+    "userType": "author",
+    "username": "samyu",
+    "password": "samyu",
+    "email": "samyu@gmail.com"
+}
+
+###author login
+post http://localhost:4000/author-api/login
+Content-Type: application/json
+
+{
+    "userType":"author",
+    "username":"samyu",
+    "password":"samyu"
+   
+}
+
+
+###new article adding
+post http://localhost:4000/author-api/new-article
+Content-Type: application/json
+
+{
+    "articleId":"{{$timestamp}}",
+   "title":"Fundamentals of JavaScript",
+   "category":"programming",
+   "content":"JavaScript's dynamic capabilities include runtime object construction, variable parameter lists, function variables, dynamic script creation object introspection (via for...in and Object utilities, and source-code recovery JavaScript functions store their source text and can be retrieved ",
+   "dateOfCreation":"{{$datetime iso8601}}",
+   "dateOfModification":"{{$datetime iso8601}}",
+   "username":"bhanu",
+   "comments": [ ],
+   "status":true
+}
+
+### adding new articles 
+get http://localhost:4000/author-api/articles/bhanu
+
+
+### edit article
+put http://localhost:4000/author-api/article
+Content-Type: application/json
+
+{
+   "articleId":"1709214892",
+   "title":"Fundamentals of JavaScript",
+   "category":"programming",
+   "content":" variable parameter lists, function variables, dynamic script creation object introspection (via for...in and Object utilities, and source-code recovery JavaScript functions store their source text and can be retrieved ",
+   "dateOfCreation":"2024-02-29T13:54:52.963Z",
+   "dateOfModification":"{{$datetime iso8601}}",
+   "username":"bhanu",
+   "comments": [ ],
+   "status":true
+   
+}
+
+
+
+### soft delete(update) of an article by id at making status as false
+put http://localhost:4000/author-api/article/1709214892
+Content-Type: application/json
+
+{
+   "articleId":"1709214892",
+   "title":"Fundamentals of JavaScript",
+   "category":"programming",
+   "content":" variable parameter lists, function variables, dynamic script creation object introspection (via for...in and Object utilities, and source-code recovery JavaScript functions store their source text and can be retrieved ",
+   "dateOfCreation":"2024-02-29T13:54:52.963Z",
+   "dateOfModification":"2024-02-29T14:18:34.838Z",
+   "username":"bhanu",
+   "comments": [ ],
+   "status":false
+   
+}
+
+
+### read articles of all authors by a user
+get  http://localhost:4000/user-api/articles
+
+
+### write comment by user
+post http://localhost:4000/user-api/comment/1714591653
+Content-Type: application/json
+
+{
+    "username":"ravi",
+    "comment":"Very useful"
+}
+
+
+
+
+
+
+# get http://localhost:4000/user-api/test-user 
+
+# ###
+# get http://localhost:4000/author-api/test-author 
+
+# ###
+# get http://localhost:4000/admin-api/test-admin 
+//for testing the 3 routs
+
